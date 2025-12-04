@@ -40,7 +40,7 @@ body::before {
 	content: "";
 	position: fixed;
 	inset: 0;
-	top: 20rem;
+
 	background-image: url("/src/assets/images/bg-all.jpg");
 	background-size: cover;
 	background-position: center;
