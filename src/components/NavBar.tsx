@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import "../styles/NavBar.css";
+import logo from "../assets/images/logo.png";
 
 export default function NavBar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,11 +20,7 @@ export default function NavBar() {
 	return (
 		<nav className="global-nav">
 			<Link to="/" className="nav-logo" onClick={handleCloseMenu}>
-				<img
-					src="/src/assets/images/logo.png"
-					alt="logo"
-					className="logo-image"
-				/>
+				<img src={logo} alt="logo" className="logo-image" />
 			</Link>
 
 			<button
