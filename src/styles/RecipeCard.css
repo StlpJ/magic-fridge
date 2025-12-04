@@ -7,7 +7,7 @@
 	width: 300px;
 	height: 288px;
 	font-family: var(--text-font);
-	background-color: var(--bg-color-fiche);
+	background-color: rgba(254, 251, 249, 1);
 }
 
 h2 {

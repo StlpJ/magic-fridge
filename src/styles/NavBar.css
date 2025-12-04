@@ -1,13 +1,26 @@
 .global-nav {
-	display: flex;
-	max-width: 1200px;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1.5rem 1rem;
-	margin: 0 auto;
-	background-color: rgba(254, 251, 249, 1);
-	color: var(--text-color-blk);
-	font-family: var(--title-font);
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+    color: var(--text-color-blk);
+    font-family: var(--title-font);
+    position: relative;
+    z-index: 1;
+}
+
+.global-nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    background-color: var(--bg-color);
+    z-index: -1;
 }
 
 .nav-logo {
