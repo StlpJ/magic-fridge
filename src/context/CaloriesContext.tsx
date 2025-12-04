@@ -26,17 +26,32 @@ type CaloriesProviderProps = {
 
 function extractIngredients(meal: Recipe): string[] {
 	const list: string[] = [];
+	const listFinal: string[] = [];
 
-	for (let i = 1; i <= 20; i += 1) {
-		const ing = meal[`strIngredient${i}`];
-		const measure = meal[`strMeasure${i}`];
+	const ing = Object.values(meal).slice(9, 29);
+	const measure = Object.values(meal).slice(29, 49);
 
-		if (ing && ing.trim() !== "") {
-			list.push(`${measure ?? ""} ${ing}`.trim());
+	for (let i = 0; i <= 19; i++) {
+		if (
+			typeof ing[i] !== "string" ||
+			ing[i] !== "" ||
+			ing[i] !== " " ||
+			typeof measure[i] === "string" ||
+			measure[i] !== "" ||
+			measure[i] !== " "
+		) {
+			const calorieSearch = ((measure[i] as string) + ing[i]) as string;
+			list.push(calorieSearch);
 		}
 	}
 
-	return list;
+	for (let i = 0; i <= 19; i++) {
+		if (list[i] !== " " && list[i] !== "") {
+			listFinal.push(list[i]);
+		}
+	}
+
+	return listFinal;
 }
 
 export function CaloriesProvider({ children }: CaloriesProviderProps) {
